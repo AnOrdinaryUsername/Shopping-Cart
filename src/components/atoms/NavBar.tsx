@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 
 interface NavBarProps {
   children: ReactNode;
