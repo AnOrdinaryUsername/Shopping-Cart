@@ -1,5 +1,6 @@
 import ButtonGroup from './ButtonGroup/ButtonGroup';
 import HeaderButtons from './ButtonGroup/HeaderButtons';
-import MainMenu from './MainMenu';
+import DesktopMenu from './Menu/DesktopMenu';
+import MobileMenu from './Menu/MobileMenu';
 
-export { ButtonGroup, HeaderButtons, MainMenu };
+export { ButtonGroup, DesktopMenu, HeaderButtons, MobileMenu };

@@ -1,0 +1,13 @@
+<svg width="360" height="320" viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<rect width="360" height="320" fill="white"/>
+<line x1="281.629" y1="9.37373" x2="48.3322" y2="216.723" stroke="black"/>
+<line x1="233.629" y1="113.374" x2="0.332161" y2="320.723" stroke="black"/>
+<line x1="349.629" y1="69.3737" x2="116.332" y2="276.723" stroke="black"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="360" height="320" fill="white"/>
+</clipPath>
+</defs>
+</svg>

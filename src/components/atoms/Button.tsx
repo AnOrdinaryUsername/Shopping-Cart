@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const selectVariant = (type: string | undefined) => {
   switch (type) {
