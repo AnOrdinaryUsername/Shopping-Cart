@@ -91,6 +91,7 @@ const GlobalStyles = createGlobalStyle`
         --card-shadow: 0px 0px 10px hsl(204deg 15% 78%);
         --win-bg-color: hsl(205, 50%, 34%);
         --win-font-color: hsl(0, 0%, 96%);
+        --code-bg: hsl(0, 0%, 87%);
     }
 
     [data-theme='dark'] {
@@ -100,6 +101,7 @@ const GlobalStyles = createGlobalStyle`
         --card-shadow: none;
         --win-bg-color: hsl(180, 45%, 29%);
         --win-font-color: hsl(0, 0%, 96%);
+        --code-bg: hsl(0, 0%, 25%);
     }
 
     html {
@@ -108,7 +110,6 @@ const GlobalStyles = createGlobalStyle`
         display: flex;
         font-size: 62.5%;
         min-height: 100%;
-        transition: color 300ms, background-color 300ms;
     }
 
     a {
@@ -140,7 +141,9 @@ const GlobalStyles = createGlobalStyle`
     }
 
     code {
+        background-color: var(--code-bg);
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+        padding: 0 0.3rem;
     }
 
     em {
@@ -158,13 +161,17 @@ const GlobalStyles = createGlobalStyle`
     }
 
     header {
+        position: sticky;
+        top: 0;
+        z-index: 90;
         display: flex;
         align-items: baseline;
         justify-content: space-between;
         width: 100%;
-        max-width: 800px;
+        max-width: 80rem;
         margin: auto;
         padding: 2rem 3.2rem;
+        background: var(--bg-color);
     }
 
     main {
