@@ -1,53 +1,70 @@
-import React, { useEffect, useState } from 'react';
-import { HeaderButtons, MainMenu } from '../molecules';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ReactComponent as LogoSVG } from 'assets/svgs/triangle.svg';
+import { Button } from 'components/atoms';
+import { DesktopMenu, HeaderButtons, MobileMenu } from 'components/molecules';
+import { useColorTheme } from 'hooks';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components/macro';
 
-const root = document.documentElement;
+interface HeaderProps {
+  isMobile: boolean;
+  isToggled: boolean;
+  onClick: () => void;
+}
 
-const initialTheme = (() => {
-  // Initial color theme.
-  let theme = 'light';
-  const storedTheme = localStorage.getItem('theme');
-  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-  if (storedTheme) {
-    if (storedTheme === 'dark') {
-      theme = 'dark';
-    }
-  } else if (mediaQuery.matches) {
-    theme = 'dark';
-  }
-
-  if (theme === 'dark') {
-    root.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
-    return false;
-  }
-
-  root.setAttribute('data-theme', 'light');
-  localStorage.setItem('theme', 'light');
-  return true;
-})();
-
-const Header = () => {
-  const [theme, setTheme] = useState(initialTheme);
-
-  const changeTheme = () => {
-    setTheme(!theme);
-  };
-
-  useEffect(() => {
-    const colorTheme = theme ? 'light' : 'dark';
-    root.setAttribute('data-theme', colorTheme);
-    localStorage.setItem('theme', colorTheme);
-  }, [theme]);
+const Header = ({ isMobile, isToggled, onClick }: HeaderProps) => {
+  const [theme, setTheme] = useColorTheme();
 
   return (
     <header>
-      <h1>Shopping Cart</h1>
-      <MainMenu />
-      <HeaderButtons onClick={changeTheme} theme={theme} />
+      <LinkContainer to="/">
+        <LogoSVG title="Beautiful and elegant square" />
+        <Logo>Shopping Cart</Logo>
+      </LinkContainer>
+      {isMobile ? (
+        <>
+          <HamburgerMenu
+            aria-expanded={isToggled}
+            aria-controls="menu"
+            aria-label={isToggled ? 'Close menu' : 'Show menu'}
+            onClick={onClick}
+          >
+            <FontAwesomeIcon icon={isToggled ? faTimes : faBars} />
+          </HamburgerMenu>
+          <MobileMenu isToggled={isToggled} onClick={setTheme} theme={theme} />
+        </>
+      ) : (
+        <>
+          <DesktopMenu />
+          <HeaderButtons onClick={setTheme} theme={theme} />
+        </>
+      )}
     </header>
   );
 };
+
+const LinkContainer = styled(Link)`
+  display: flex;
+  align-items: baseline;
+
+  & > svg {
+    align-self: flex-end;
+    height: 3.5rem;
+    width: auto;
+    margin-right: 0.8rem;
+  }
+`;
+
+const Logo = styled.span`
+  font-size: 1.25em;
+  font-weight: 500;
+`;
+
+const HamburgerMenu = styled(Button)`
+  align-self: center;
+  font-size: 2em;
+`;
 
 export default Header;
