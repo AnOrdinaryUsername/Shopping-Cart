@@ -1,11 +1,12 @@
+import GlobalFonts from 'assets/fonts/fonts';
 import { Header } from 'components/organisms';
 import { About, Home, NotFound, Stuff } from 'components/pages';
 import { useToggle, useWindowSize } from 'hooks';
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import GlobalStyles from 'root/GlobalStyles';
 import styled, { ThemeProvider } from 'styled-components/macro';
 import { BREAKPOINT_SIZES, THEME } from '../constants';
-import GlobalStyles from './GlobalStyles';
 
 const App = () => {
   const [isToggled, setIsToggled] = useToggle();
@@ -16,6 +17,7 @@ const App = () => {
     <HashRouter>
       <ThemeProvider theme={THEME}>
         <GlobalStyles />
+        <GlobalFonts />
         <Header isMobile={isMobile} isToggled={isToggled} onClick={setIsToggled} />
         <main>
           <Switch>
