@@ -21,6 +21,8 @@ const DesktopMenu = () => {
 
 const NavBar = styled.nav`
   width: 30%;
+  font-size: 1.25em;
+  font-weight: 300;
 `;
 
 const List = styled.ul`
