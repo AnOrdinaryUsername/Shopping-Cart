@@ -9,9 +9,9 @@ const NotFound = () => {
   return (
     <Container>
       <HamsterFace>(´･ω･`)</HamsterFace>
-      <p>
+      <Text>
         Sowwy, da page <code>{path}</code> does nyot exist.
-      </p>
+      </Text>
     </Container>
   );
 };
@@ -19,7 +19,6 @@ const NotFound = () => {
 const Container = styled.div`
   display: grid;
   place-items: center;
-  max-width: 80rem;
   margin-top: 10rem;
   width: 100%;
 `;
@@ -27,6 +26,10 @@ const Container = styled.div`
 const HamsterFace = styled.h1`
   font-size: 3em;
   margin-bottom: 2rem;
+`;
+
+const Text = styled.p`
+  font-size: 1.25em;
 `;
 
 export default NotFound;
