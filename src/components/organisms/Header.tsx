@@ -18,32 +18,42 @@ const Header = ({ isMobile, isToggled, onClick }: HeaderProps) => {
   const [theme, setTheme] = useColorTheme();
 
   return (
-    <header>
-      <LinkContainer to="/">
-        <LogoSVG title="Beautiful and elegant square" />
-        <Logo>Shopping Cart</Logo>
-      </LinkContainer>
-      {isMobile ? (
-        <>
-          <HamburgerMenu
-            aria-expanded={isToggled}
-            aria-controls="menu"
-            aria-label={isToggled ? 'Close menu' : 'Show menu'}
-            onClick={onClick}
-          >
-            <FontAwesomeIcon icon={isToggled ? faTimes : faBars} />
-          </HamburgerMenu>
-          <MobileMenu isToggled={isToggled} onClick={setTheme} theme={theme} />
-        </>
-      ) : (
-        <>
-          <DesktopMenu />
-          <HeaderButtons onClick={setTheme} theme={theme} />
-        </>
-      )}
-    </header>
+    <Wrapper>
+      <header>
+        <LinkContainer to="/">
+          <LogoSVG title="Beautiful and elegant square" />
+          <Logo>The Elements</Logo>
+        </LinkContainer>
+        {isMobile ? (
+          <>
+            <HamburgerMenu
+              aria-expanded={isToggled}
+              aria-controls="menu"
+              aria-label={isToggled ? 'Close menu' : 'Show menu'}
+              onClick={onClick}
+            >
+              <FontAwesomeIcon icon={isToggled ? faTimes : faBars} />
+            </HamburgerMenu>
+            <MobileMenu isToggled={isToggled} onClick={setTheme} theme={theme} />
+          </>
+        ) : (
+          <>
+            <DesktopMenu />
+            <HeaderButtons onClick={setTheme} theme={theme} />
+          </>
+        )}
+      </header>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background-color: var(--bg-color);
+  width: 100%;
+`;
 
 const LinkContainer = styled(Link)`
   display: flex;
@@ -58,7 +68,7 @@ const LinkContainer = styled(Link)`
 `;
 
 const Logo = styled.span`
-  font-size: 1.25em;
+  font-size: 1.5em;
   font-weight: 500;
 `;
 
