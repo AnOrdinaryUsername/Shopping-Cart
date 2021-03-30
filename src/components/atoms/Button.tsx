@@ -1,31 +1,87 @@
 import React, { ButtonHTMLAttributes } from 'react';
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 
-const selectVariant = (type: string | undefined) => {
-  switch (type) {
+export const primaryButton = css`
+  background-color: var(--button-bg-color);
+  color: var(--button-font-color);
+`;
+
+export const secondaryButton = css`
+  border: 0.3rem solid var(--button-bg-color);
+  background-color: inherit;
+  color: var(--button-bg-color);
+`;
+
+export const tertiaryButton = css`
+  background-color: inherit;
+  color: inherit;
+  height: min-content;
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+`;
+
+const selectVariant = (variant?: string) => {
+  switch (variant) {
     case 'primary':
+      return primaryButton;
     case 'secondary':
+      return secondaryButton;
     case 'tertiary':
-      return `background-color: var(--${type}-button-bg); color: var(--${type}-button-font);`;
+      return tertiaryButton;
     default:
-      return '';
+      return tertiaryButton;
   }
 };
 
-interface VariantProps {
+export const smallButton = css`
+  padding: 0.8rem 1.4rem;
+`;
+
+export const mediumButton = css`
+  padding: 1.2rem 2.2rem;
+`;
+
+export const largeButton = css`
+  padding: 1.8rem 3.2rem;
+`;
+
+const selectSize = (size?: string) => {
+  switch (size) {
+    case 'small':
+      return smallButton;
+    case 'medium':
+      return mediumButton;
+    case 'large':
+      return largeButton;
+    default:
+      return 'padding: inherit';
+  }
+};
+
+export const defaultButtonStyles = css`
+  border-radius: 0.8rem;
+  font-weight: 700;
+`;
+
+interface DefaultButtonProps {
   variant?: string;
+  size?: string;
 }
 
-const StyledButton = styled.button<VariantProps>`
-  ${({ variant }) => selectVariant(variant)};
+const StyledButton = styled.button<DefaultButtonProps>`
+  ${({ variant }) => selectVariant(variant)}
+  ${({ size }) => selectSize(size)}
+    ${defaultButtonStyles}
 
+    display: inline-flex;
   align-items: baseline;
-  border-radius: 0.8rem;
-  display: inline-flex;
   justify-content: center;
 `;
 
-const Button = ({ children, ...props }: ButtonHTMLAttributes<HTMLButtonElement> & VariantProps) => {
+const Button = ({
+  children,
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement> & DefaultButtonProps) => {
   return <StyledButton {...props}>{children}</StyledButton>;
 };
 
