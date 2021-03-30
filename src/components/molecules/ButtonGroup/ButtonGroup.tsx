@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 interface ChildrenCount {
   isMobile?: boolean;
   count: number;
+  gap?: string;
 }
 
 const GroupContainer = styled.div<ChildrenCount>`
@@ -13,7 +14,7 @@ const GroupContainer = styled.div<ChildrenCount>`
   align-items: baseline;
   justify-content: center;
   font-size: 2.4rem;
-  column-gap: 1.2rem;
+  column-gap: ${({ gap }) => (gap ? `${gap}` : '1.2rem')};
 
   & a {
     display: inline-flex;
@@ -28,8 +29,8 @@ const GroupContainer = styled.div<ChildrenCount>`
     padding: 0 1rem;
   }
 
-  ${(props) =>
-    props.isMobile &&
+  ${({ isMobile }) =>
+    isMobile &&
     `
     grid-template-columns: repeat(2, 6.5rem);
     height: 5rem;
@@ -43,12 +44,13 @@ const GroupContainer = styled.div<ChildrenCount>`
 interface ButtonGroupProps {
   isMobile?: boolean;
   children: ReactNode;
+  gap?: string;
 }
 
-const ButtonGroup = ({ isMobile, children }: ButtonGroupProps) => {
+const ButtonGroup = ({ isMobile, children, gap }: ButtonGroupProps) => {
   const childrenCount = Children.count(children);
   return (
-    <GroupContainer isMobile={isMobile} count={childrenCount}>
+    <GroupContainer isMobile={isMobile} count={childrenCount} gap={gap}>
       {children}
     </GroupContainer>
   );

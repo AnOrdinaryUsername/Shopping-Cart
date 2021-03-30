@@ -38,6 +38,9 @@ const MobileMenu = ({ isToggled, onClick, theme }: MobileMenuProps) => {
 
 const Nav = styled.nav`
   position: relative;
+  width: 30%;
+  font-size: 1.25em;
+  font-weight: 300;
 `;
 
 const Wrapper = styled.div<ToggleState>`
@@ -46,7 +49,7 @@ const Wrapper = styled.div<ToggleState>`
   left: 0;
   top: 6rem;
   z-index: 999;
-  padding: 0 3.2rem 3.2rem;
+  padding: 3.2rem;
   width: 100%;
   background: var(--bg-color);
 `;

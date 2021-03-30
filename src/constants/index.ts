@@ -13,7 +13,7 @@ export const BREAKPOINT_SIZES = {
 export const BREAKPOINTS = {
   sm: `(min-width: ${BREAKPOINT_SIZES.sm}px)`,
   med: `(min-width: ${BREAKPOINT_SIZES.med}px)`,
-  lg: `(min-width: ${BREAKPOINT_SIZES.lg}}px)`,
+  lg: `(min-width: ${BREAKPOINT_SIZES.lg}px)`,
 };
 
 export const COLORS = {

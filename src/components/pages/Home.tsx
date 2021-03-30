@@ -1,7 +1,8 @@
+import { Hero } from 'components/organisms';
 import React from 'react';
 
 const Home = () => {
-  return <div>We do be in home tho.</div>;
+  return <Hero />;
 };
 
 export default Home;
