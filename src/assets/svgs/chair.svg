@@ -1,0 +1,26 @@
+<svg width="278" height="248" viewBox="0 0 278 248" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="229" width="28" height="19" fill="#403D38"/>
+<rect x="224" y="229" width="28" height="19" fill="#403D38"/>
+<rect x="41" y="1" width="196" height="140" rx="19" fill="url(#paint0_linear)" stroke="black" stroke-width="2"/>
+<rect x="41" y="192" width="183" height="39" fill="#D64343" stroke="black" stroke-width="2"/>
+<path d="M24.0995 167L78.0777 139H197.895L248.151 167H24.0995Z" fill="#D64343"/>
+<path d="M24.0995 167L78.0777 139H197.895L248.151 167H24.0995Z" fill="url(#paint1_linear)"/>
+<path d="M24.0995 167L78.0777 139H197.895L248.151 167H24.0995Z" stroke="black" stroke-width="2"/>
+<rect x="39" y="167" width="187" height="32" rx="11" fill="#D64343" stroke="black" stroke-width="2"/>
+<rect x="14" y="143" width="42" height="95" rx="7" fill="#D64343" stroke="black" stroke-width="2"/>
+<rect x="217" y="143" width="42" height="95" rx="7" fill="#D64343" stroke="black" stroke-width="2"/>
+<circle cx="238" cy="138" r="39" fill="#D64343" stroke="black" stroke-width="2"/>
+<circle cx="238" cy="138" r="10" fill="#111111"/>
+<circle cx="40" cy="138" r="39" fill="#D64343" stroke="black" stroke-width="2"/>
+<circle cx="40" cy="138" r="10" fill="#111111"/>
+<defs>
+<linearGradient id="paint0_linear" x1="139" y1="0" x2="139" y2="142" gradientUnits="userSpaceOnUse">
+<stop offset="0.284375" stop-color="#D64343"/>
+<stop offset="0.966667" stop-color="#AA0808"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x1="136" y1="138" x2="136" y2="168" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AA0808"/>
+<stop offset="0.675" stop-color="#D64343"/>
+</linearGradient>
+</defs>
+</svg>

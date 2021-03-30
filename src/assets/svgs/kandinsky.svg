@@ -1,42 +1,41 @@
-<svg width="360" height="320" viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="360" height="320" fill="white"/>
-<line x1="209.004" y1="82.7801" x2="52.639" y2="213.986" stroke="black"/>
-<line x1="279.686" y1="82.383" x2="123.321" y2="213.589" stroke="black"/>
-<path d="M103.629 213.87C108.829 207.673 111.354 199.665 110.649 191.607C109.944 183.548 106.067 176.1 99.87 170.901C93.6733 165.701 85.665 163.176 77.6067 163.881C69.5484 164.586 62.1002 168.463 56.9006 174.66" stroke="#CE8C8C"/>
-<circle cx="192.5" cy="222.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="209.5" cy="222.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="226.5" cy="222.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="243.5" cy="222.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="192.5" cy="270.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="209.5" cy="270.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="226.5" cy="270.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="243.5" cy="270.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="192.5" cy="246.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="209.5" cy="246.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="226.5" cy="246.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="243.5" cy="246.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="260.5" cy="222.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="277.5" cy="222.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="294.5" cy="222.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="311.5" cy="222.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="192.5" cy="198.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="209.5" cy="198.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="226.5" cy="198.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="243.5" cy="198.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="260.5" cy="198.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="277.5" cy="198.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="294.5" cy="198.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="311.5" cy="198.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="260.5" cy="270.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="277.5" cy="270.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="294.5" cy="270.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="311.5" cy="270.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="260.5" cy="246.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="277.5" cy="246.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="294.5" cy="246.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<circle cx="311.5" cy="246.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
-<line x1="72.0673" y1="114.505" x2="234.067" y2="136.505" stroke="black"/>
-<line x1="131.067" y1="88.5045" x2="293.067" y2="110.505" stroke="black"/>
-<path d="M92.5 50C92.5 59.0292 83.6374 66.5 72.5 66.5C61.3626 66.5 52.5 59.0292 52.5 50C52.5 40.9708 61.3626 33.5 72.5 33.5C83.6374 33.5 92.5 40.9708 92.5 50Z" fill="#C8E5F1" stroke="black"/>
-<path d="M51.9235 247H129L116.568 269H38L51.9235 247Z" fill="#FFEBC3"/>
+<svg width="276" height="240" viewBox="0 0 276 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="171.004" y1="49.7801" x2="14.639" y2="180.986" stroke="black"/>
+<line x1="241.686" y1="49.383" x2="85.3214" y2="180.589" stroke="black"/>
+<path d="M65.6293 180.87C70.8289 174.673 73.3539 166.665 72.6489 158.607C71.9439 150.548 68.0666 143.1 61.87 137.901C55.6733 132.701 47.665 130.176 39.6067 130.881C31.5484 131.586 24.1002 135.463 18.9006 141.66" stroke="#CE8C8C"/>
+<circle cx="154.5" cy="189.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="171.5" cy="189.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="188.5" cy="189.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="205.5" cy="189.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="154.5" cy="237.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="171.5" cy="237.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="188.5" cy="237.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="205.5" cy="237.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="154.5" cy="213.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="171.5" cy="213.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="188.5" cy="213.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="205.5" cy="213.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="222.5" cy="189.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="239.5" cy="189.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="256.5" cy="189.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="273.5" cy="189.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="154.5" cy="165.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="171.5" cy="165.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="188.5" cy="165.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="205.5" cy="165.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="222.5" cy="165.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="239.5" cy="165.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="256.5" cy="165.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="273.5" cy="165.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="222.5" cy="237.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="239.5" cy="237.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="256.5" cy="237.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="273.5" cy="237.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="222.5" cy="213.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="239.5" cy="213.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="256.5" cy="213.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<circle cx="273.5" cy="213.5" r="2.375" fill="#040404" stroke="black" stroke-width="0.25"/>
+<line x1="34.0673" y1="81.5045" x2="196.067" y2="103.505" stroke="black"/>
+<line x1="93.0673" y1="55.5045" x2="255.067" y2="77.5045" stroke="black"/>
+<path d="M54.5 17C54.5 26.0292 45.6374 33.5 34.5 33.5C23.3626 33.5 14.5 26.0292 14.5 17C14.5 7.97084 23.3626 0.5 34.5 0.5C45.6374 0.5 54.5 7.97084 54.5 17Z" fill="#C8E5F1" stroke="black"/>
+<path d="M13.9235 214H91L78.5683 236H0L13.9235 214Z" fill="#FFEBC3"/>
 </svg>
