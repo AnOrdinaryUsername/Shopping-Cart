@@ -87,16 +87,19 @@ const GlobalStyles = createGlobalStyle`
     :root {
         --bg-color: hsl(204, 15%, 94%);
         --font-color: hsl(0, 0%, 25%);
+        --invert-bg: hsl(0, 0%, 25%);
+        --invert-font: hsl(204, 15%, 94%);
+        --button-bg-color: hsl(0, 0%, 26%);
+        --button-font-color: hsl(204, 15%, 94%);
         --heading-color: hsl(0, 0%, 26%);
-        --card-shadow: 0px 0px 10px hsl(204deg 15% 78%);
-        --win-bg-color: hsl(205, 50%, 34%);
-        --win-font-color: hsl(0, 0%, 96%);
         --code-bg: hsl(0, 0%, 87%);
     }
 
     [data-theme='dark'] {
         --bg-color: hsl(232, 20%, 17%);
         --font-color: hsl(0, 0%, 96%);
+        --invert-bg: hsl(0, 0%, 96%);
+        --invert-font: hsl(232, 20%, 17%);
         --heading-color: hsl(0, 0%, 100%);
         --card-shadow: none;
         --win-bg-color: hsl(180, 45%, 29%);
@@ -121,7 +124,7 @@ const GlobalStyles = createGlobalStyle`
         display: flex;
         flex: 1;
         flex-flow: column nowrap;
-        font: 16px/1.65 system-ui, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+        font: 16px/1.65 Nunito, system-ui, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
             Helvetica Neue, sans-serif;
         font-size: 1.6em;
         line-height: 1.65;
@@ -161,9 +164,6 @@ const GlobalStyles = createGlobalStyle`
     }
 
     header {
-        position: sticky;
-        top: 0;
-        z-index: 90;
         display: flex;
         align-items: baseline;
         justify-content: space-between;
@@ -171,7 +171,6 @@ const GlobalStyles = createGlobalStyle`
         max-width: 80rem;
         margin: auto;
         padding: 2rem 3.2rem;
-        background: var(--bg-color);
     }
 
     main {
