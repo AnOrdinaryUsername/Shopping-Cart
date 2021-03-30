@@ -1,15 +1,48 @@
 import React, { AnchorHTMLAttributes } from 'react';
+import styled from 'styled-components';
 
-interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface LinkProps {
+  hasUnderline?: boolean;
+  hasHover?: boolean;
+}
+
+interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement>, LinkProps {
   link: string;
 }
 
-const Anchor = ({ children, link, ...props }: AnchorProps) => {
+const Anchor = ({ children, hasHover, hasUnderline, link, ...props }: AnchorProps) => {
   return (
-    <a target="_blank" rel="noopener noreferrer" href={link} {...props}>
+    <Link
+      hasHover={hasHover}
+      hasUnderline={hasUnderline}
+      target="_blank"
+      rel="noopener noreferrer"
+      href={link}
+      {...props}
+    >
       {children}
-    </a>
+    </Link>
   );
 };
+
+const Link = styled.a<LinkProps>`
+  ${({ hasUnderline }) =>
+    hasUnderline &&
+    `
+    padding: 0 0.4rem;
+    text-decoration: underline solid black 0.2rem;
+    text-underline-offset: 0.4rem;
+  `}
+
+  ${({ hasHover }) =>
+    hasHover &&
+    `
+    &:hover {
+      background-color: var(--invert-bg);
+      color: var(--invert-font);
+      text-decoration: none;
+    }
+  `}
+`;
 
 export default Anchor;
