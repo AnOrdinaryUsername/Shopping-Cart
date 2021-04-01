@@ -1,8 +1,13 @@
-import { Hero } from 'components/organisms';
+import { Hero, Testimonials } from 'components/organisms';
 import React from 'react';
 
 const Home = () => {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <Testimonials />
+    </>
+  );
 };
 
 export default Home;
