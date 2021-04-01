@@ -49,6 +49,7 @@ const Subheading = styled.h2`
   font-size: 2em;
   font-weight: 700;
   margin-bottom: 4.8rem;
+  text-align: center;
 `;
 
 const SwiperWrapper = styled(Swiper)`
