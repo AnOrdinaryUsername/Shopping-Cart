@@ -46,6 +46,7 @@ const Testimonial = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 1.25em;
 `;
 
 const Description = styled.p`
