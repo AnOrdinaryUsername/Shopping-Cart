@@ -39,7 +39,7 @@ const Section = styled.section`
   align-items: center;
   justify-content: space-evenly;
   padding: 3.6rem;
-  overflow-x: hidden;
+  overflow: hidden;
 
   @media ${(p) => p.theme.breakpoints.sm} {
     padding: 4.8rem;
@@ -74,7 +74,6 @@ const Intro = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: 'Nunito';
   font-weight: 700;
   font-size: 2.25em;
   letter-spacing: 0.06rem;
