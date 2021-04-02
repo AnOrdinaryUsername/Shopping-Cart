@@ -33,19 +33,39 @@ const MouthSvg = () => {
         <path d="M144.316 124L170.316 162L204.316 124" stroke="black" stroke-width="2" />
         <ellipse cx="173.816" cy="123.5" rx="29" ry="7.5" fill="var(--bg-color)" />
       </svg>
+      <Download to="/src/assets/svgs/circle.svg" target="_blank" download>
+        <FontAwesomeIcon icon={faDownload} />
+        Try for free
+      </Download>
     </Mouth>
   );
 };
 
 const Mouth = styled.div`
-  position: absolute;
-  height: 330px;
-  width: 380px;
-  top: 38%;
-  z-index: -1;
+  position: relative;
+  height: 31rem;
+
+  & > svg {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: -1;
+    height: 330px;
+    width: 380px;
+    transform: translate(-50%, 0);
+  }
+`;
+
+const Download = styled(Link)`
+  display: inline-block;
+  ${defaultButtonStyles}
+  ${mediumButton}
+  ${primaryButton}
+  margin-top: 3.2rem;
+  cursor: pointer;
 
   & svg {
-    width: 100%;
+    margin-right: 0.8rem;
   }
 `;
 
@@ -55,10 +75,6 @@ const CallToAction = () => {
       <Wrapper>
         <SubHeading>Like what you see?</SubHeading>
         <MainHeading>Add some flare to your pages today</MainHeading>
-        <Download to="/src/assets/svgs/circle.svg" target="_blank" download>
-          <FontAwesomeIcon icon={faDownload} />
-          Try for free
-        </Download>
       </Wrapper>
       <MouthSvg />
     </Section>
@@ -68,7 +84,6 @@ const CallToAction = () => {
 export default CallToAction;
 
 const Section = styled.section`
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +103,6 @@ const Section = styled.section`
 `;
 
 const Wrapper = styled.div`
-  min-height: 42rem;
   font-weight: 700;
   text-align: center;
 `;
@@ -102,21 +116,10 @@ const MainHeading = styled.h2`
   font-weight: 700;
   font-size: 2.25em;
   letter-spacing: 0.06rem;
-  margin-bottom: 6.4rem;
+  margin-bottom: 7.4rem;
 
   @media ${(p) => p.theme.breakpoints.med} {
     font-size: 3em;
-  }
-`;
-
-const Download = styled(Link)`
-  display: inline-block;
-  ${defaultButtonStyles}
-  ${mediumButton}
-  ${primaryButton}
-  cursor: pointer;
-
-  & svg {
-    margin-right: 0.8rem;
+    margin-bottom: 6.4rem;
   }
 `;
