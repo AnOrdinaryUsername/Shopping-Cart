@@ -2,10 +2,13 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { CardData } from './CardData';
 
-const Card = ({ src, description, name, jobTitle }: CardData) => {
+const Card = ({ src, description, name, shadowColor, jobTitle }: CardData) => {
+  const title = `${name}'s Testimony`;
+
   return (
     <Wrapper>
-      <Image src={src} alt={name} />
+      <HiddenHeading>{title}</HiddenHeading>
+      <Image src={src} alt={name} color={shadowColor} />
       <Testimonial>
         <Description>"{description}"</Description>
         <PersonInfo>
@@ -18,26 +21,42 @@ const Card = ({ src, description, name, jobTitle }: CardData) => {
 };
 
 const Wrapper = styled.article`
+  /* css variable*/
+  --shadow-size: 1.6rem;
+
+  position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 4.8rem;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 4.8rem;
+  padding-bottom: 4.8rem;
   width: fit-content;
 
-  @media ${(p) => p.theme.breakpoints.sm} {
+  @media ${(p) => p.theme.breakpoints.med} {
     flex-direction: row;
   }
+`;
+
+const HiddenHeading = styled.h3`
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 `;
 
 const Image = styled.img`
   width: 250px;
   height: auto;
-  margin-bottom: 3.6rem;
+  margin-bottom: calc(3.6rem + var(--shadow-size));
   border-radius: 1.6rem;
+  ${({ color }) => `box-shadow: var(--shadow-size) var(--shadow-size) 0 0 ${color};`}
 
-  @media ${(p) => p.theme.breakpoints.sm} {
-    margin-right: 3.6rem;
+  @media ${(p) => p.theme.breakpoints.med} {
+    margin-right: calc(3.6rem + var(--shadow-size));
     margin-bottom: 0;
   }
 `;
