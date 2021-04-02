@@ -54,7 +54,7 @@ const selectSize = (size?: string) => {
     case 'large':
       return largeButton;
     default:
-      return 'padding: inherit;';
+      return 'padding: 0;';
   }
 };
 
@@ -74,7 +74,7 @@ const StyledButton = styled.button<DefaultButtonProps>`
   ${defaultButtonStyles}
 
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
 `;
 
