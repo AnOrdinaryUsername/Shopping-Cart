@@ -34,7 +34,7 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3.6rem;
+  padding: 3.6rem 1.6rem;
   overflow: hidden;
 
   @media ${(p) => p.theme.breakpoints.sm} {
