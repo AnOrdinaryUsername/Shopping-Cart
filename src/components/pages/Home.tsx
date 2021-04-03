@@ -1,4 +1,4 @@
-import { CallToAction, Hero, Testimonials } from 'components/organisms';
+import { CallToAction, Footer, Hero, Testimonials } from 'components/organisms';
 import React from 'react';
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
       <Hero />
       <Testimonials />
       <CallToAction />
+      <Footer />
     </>
   );
 };
