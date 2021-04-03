@@ -26,7 +26,7 @@ const Hero = () => {
         <BackgroundCircle id="circle" />
       </Intro>
       <SVGContainer>
-        <Chair title="A red chair" />
+        <Chair className="chair" title="A red chair" />
         <Comment className="comment" title="Arrow pointing to red chair saying 'i made this :)'" />
       </SVGContainer>
     </Section>
@@ -183,6 +183,15 @@ const Links = styled.div`
 
 const SVGContainer = styled.div`
   position: relative;
+
+  & > .chair {
+    width: 250px;
+    height: auto;
+
+    @media ${(p) => p.theme.breakpoints.sm} {
+      width: initial;
+    }
+  }
 
   /* .comment refers to 'i made this :)' svg */
   & > .comment {

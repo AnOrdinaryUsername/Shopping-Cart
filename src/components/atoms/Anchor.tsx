@@ -1,5 +1,5 @@
 import React, { AnchorHTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 interface LinkProps {
   hasUnderline?: boolean;

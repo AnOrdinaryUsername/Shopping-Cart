@@ -6,7 +6,7 @@ import SwiperCore, { A11y, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import Card from './Card';
-import Cards from './CardData';
+import cards from './CardData';
 
 SwiperCore.use([Pagination, A11y]);
 
@@ -17,7 +17,7 @@ const Testimonials = () => {
       <SquareSvg />
       <Subheading>Here's what people have to say</Subheading>
       <SwiperWrapper spaceBetween={75} slidesPerView={1} pagination={{ clickable: true }}>
-        {Cards.map((props, index) => {
+        {cards.map((props, index) => {
           return (
             <SwiperSlide key={index}>
               <Card {...props} />
