@@ -116,10 +116,9 @@ const MainHeading = styled.h2`
   font-weight: 700;
   font-size: 2.25em;
   letter-spacing: 0.06rem;
-  margin-bottom: 7.4rem;
+  margin-bottom: 3.2rem;
 
   @media ${(p) => p.theme.breakpoints.med} {
     font-size: 3em;
-    margin-bottom: 6.4rem;
   }
 `;
