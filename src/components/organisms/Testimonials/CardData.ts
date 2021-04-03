@@ -12,7 +12,7 @@ export interface CardData {
 
 interface CardStorage extends Array<CardData> {}
 
-const Cards: CardStorage = [
+const cards: CardStorage = [
   {
     src: janeDoeSrc,
     description:
@@ -41,4 +41,4 @@ const Cards: CardStorage = [
   },
 ];
 
-export default Cards;
+export default cards;
