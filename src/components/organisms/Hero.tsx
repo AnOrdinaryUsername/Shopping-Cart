@@ -26,7 +26,7 @@ const Hero = () => {
         <BackgroundCircle id="circle" />
       </Intro>
       <SVGContainer>
-        <Chair className="red-chair" title="A red chair" />
+        <Chair className="chair" title="A red chair" />
         <Comment className="comment" title="Arrow pointing to red chair saying 'i made this :)'" />
       </SVGContainer>
     </Section>
@@ -184,7 +184,7 @@ const Links = styled.div`
 const SVGContainer = styled.div`
   position: relative;
 
-  & > .red-chair {
+  & > .chair {
     width: 250px;
     height: auto;
 
