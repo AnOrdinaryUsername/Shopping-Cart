@@ -74,7 +74,7 @@ const CallToAction = () => {
     <Section>
       <Wrapper>
         <SubHeading>Like what you see?</SubHeading>
-        <MainHeading>Add some flare to your pages today</MainHeading>
+        <MainHeading>Add some flair to your pages today</MainHeading>
       </Wrapper>
       <MouthSvg />
     </Section>
