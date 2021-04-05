@@ -1,6 +1,6 @@
 import GlobalFonts from 'assets/fonts/fonts';
 import { Header } from 'components/organisms';
-import { About, Home, NotFound, Stuff } from 'components/pages';
+import { About, Home, NotFound, Shop } from 'components/pages';
 import { useToggle, useWindowSize } from 'hooks';
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
@@ -23,7 +23,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/stuff" component={Stuff} />
+            <Route exact path="/shop" component={Shop} />
             <Route exact path="*" component={NotFound} />
           </Switch>
         </main>
