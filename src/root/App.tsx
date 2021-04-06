@@ -1,5 +1,5 @@
 import GlobalFonts from 'assets/fonts/fonts';
-import { Header } from 'components/organisms';
+import { Footer, Header } from 'components/organisms';
 import { About, Home, NotFound, Shop } from 'components/pages';
 import { useToggle, useWindowSize } from 'hooks';
 import React from 'react';
@@ -27,6 +27,7 @@ const App = () => {
             <Route exact path="*" component={NotFound} />
           </Switch>
         </main>
+        <Footer />
         {isMobile && <Overlay isMobileMenuPresent={isToggled} />}
       </ThemeProvider>
     </HashRouter>
@@ -34,8 +35,8 @@ const App = () => {
 };
 
 const Overlay = styled.div`
-  ${(props: { isMobileMenuPresent: boolean }) =>
-    props.isMobileMenuPresent ? 'display: block;' : 'display: none;'}
+  display: ${(props: { isMobileMenuPresent: boolean }) =>
+    props.isMobileMenuPresent ? 'block' : 'none'};
   position: fixed;
   bottom: 0;
   left: 0;
