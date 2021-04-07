@@ -12,10 +12,18 @@ interface MobileMenuProps extends ToggleState {
   isSticky: boolean;
   onClick: () => void;
   onHeaderToggle: () => void;
+  onEnterNewPage: () => void;
   theme: boolean;
 }
 
-const MobileMenu = ({ isToggled, isSticky, onClick, onHeaderToggle, theme }: MobileMenuProps) => {
+const MobileMenu = ({
+  isToggled,
+  isSticky,
+  onClick,
+  onEnterNewPage,
+  onHeaderToggle,
+  theme,
+}: MobileMenuProps) => {
   return (
     <Wrapper isToggled={isToggled}>
       {isToggled && (
@@ -25,7 +33,9 @@ const MobileMenu = ({ isToggled, isSticky, onClick, onHeaderToggle, theme }: Mob
               {menuRoutes.map((item, index) => {
                 return (
                   <Item key={index}>
-                    <Link to={item.route}>{item.text}</Link>
+                    <Link to={item.route} onClick={onEnterNewPage}>
+                      {item.text}
+                    </Link>
                   </Item>
                 );
               })}

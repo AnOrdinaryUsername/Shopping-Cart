@@ -7,17 +7,18 @@ import React from 'react';
 import styled from 'styled-components/macro';
 
 interface HeaderProps {
+  headerRef: any;
   isMobile: boolean;
   isToggled: boolean;
-  onClick: () => void;
+  updateHamburgerIcon: () => void;
 }
 
-const Header = ({ isMobile, isToggled, onClick }: HeaderProps) => {
+const Header = ({ headerRef, isMobile, isToggled, updateHamburgerIcon }: HeaderProps) => {
   const [theme, setTheme] = useColorTheme();
   const [isSticky, setIsSticky] = useToggle();
 
   return (
-    <Wrapper isSticky={isSticky}>
+    <Wrapper ref={headerRef} isSticky={isSticky}>
       <header>
         <CompanyLogo />
         {isMobile ? (
@@ -26,7 +27,7 @@ const Header = ({ isMobile, isToggled, onClick }: HeaderProps) => {
               aria-expanded={isToggled}
               aria-controls="menu"
               aria-label={isToggled ? 'Close menu' : 'Show menu'}
-              onClick={onClick}
+              onClick={updateHamburgerIcon}
             >
               <FontAwesomeIcon icon={isToggled ? faTimes : faBars} />
             </HamburgerMenu>
@@ -34,6 +35,7 @@ const Header = ({ isMobile, isToggled, onClick }: HeaderProps) => {
               isToggled={isToggled}
               onClick={setTheme}
               onHeaderToggle={setIsSticky}
+              onEnterNewPage={updateHamburgerIcon}
               isSticky={isSticky}
               theme={theme}
             />
