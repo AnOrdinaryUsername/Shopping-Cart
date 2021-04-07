@@ -1,4 +1,4 @@
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faShoppingCart, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, CompanyLogo } from 'components/atoms';
 import { DesktopMenu, HeaderButtons, MobileMenu } from 'components/molecules';
@@ -20,6 +20,11 @@ const Header = ({ headerRef, isMobile, isToggled, updateHamburgerIcon }: HeaderP
   return (
     <Wrapper ref={headerRef} isSticky={isSticky}>
       <header>
+        {isMobile && (
+          <MobileShoppingIcon>
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </MobileShoppingIcon>
+        )}
         <CompanyLogo />
         {isMobile ? (
           <>
@@ -68,6 +73,12 @@ const Wrapper = styled.div`
 const HamburgerMenu = styled(Button)`
   align-self: center;
   font-size: 2em;
+  min-width: 3rem;
+`;
+
+const MobileShoppingIcon = styled(Button)`
+  align-self: center;
+  font-size: 1.5em;
 `;
 
 export default Header;
