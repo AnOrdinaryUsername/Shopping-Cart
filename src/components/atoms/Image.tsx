@@ -1,12 +1,17 @@
 import React, { ImgHTMLAttributes } from 'react';
-
+import styled from 'styled-components';
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
   src: string;
 }
 
 const Image = ({ alt, src }: ImageProps) => {
-  return <img alt={alt || ''} src={src}></img>;
+  return <ResponsiveImage alt={alt || ''} src={src} />;
 };
 
 export default Image;
+
+const ResponsiveImage = styled.img`
+  max-width: 100%;
+  height: auto;
+`;
