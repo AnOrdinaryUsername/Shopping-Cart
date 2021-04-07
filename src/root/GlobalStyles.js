@@ -87,6 +87,7 @@ const GlobalStyles = createGlobalStyle`
     :root {
         --bg-color: hsl(204, 15%, 94%);
         --font-color: hsl(0, 0%, 25%);
+        --header-bg: hsl(0, 0%, 97%);
         --invert-bg: hsl(0, 0%, 25%);
         --invert-font: hsl(204, 15%, 94%);
         --button-bg-color: hsl(0, 0%, 26%);
@@ -98,6 +99,7 @@ const GlobalStyles = createGlobalStyle`
     [data-theme='dark'] {
         --bg-color: hsl(232, 20%, 17%);
         --font-color: hsl(0, 0%, 96%);
+        --header-bg: hsl(0, 0%, 11%);
         --invert-bg: hsl(0, 0%, 96%);
         --invert-font: hsl(232, 20%, 17%);
         --heading-color: hsl(0, 0%, 100%);
