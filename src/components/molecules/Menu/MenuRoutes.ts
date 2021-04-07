@@ -8,8 +8,8 @@ const menuRoutes = [
     text: 'About',
   },
   {
-    route: '/stuff',
-    text: 'Stuff',
+    route: '/shop',
+    text: 'Shop',
   },
 ];
 

@@ -19,7 +19,7 @@ const Hero = () => {
         <Title>Quality geometric-based SVGs for everyone</Title>
         <Info>Spice up your backgrounds with these beautiful, reusable vector graphics</Info>
         <Links>
-          <Link to="/stuff">Shop now</Link>
+          <Link to="/shop">Shop now</Link>
           <Link to="/about">Learn more</Link>
         </Links>
         <BackgroundDots />

@@ -20,13 +20,22 @@ const LinkContainer = styled(Link)`
 
   & > svg {
     align-self: flex-end;
-    height: 3.5rem;
+    height: 3.25rem;
     width: auto;
-    margin-right: 0.8rem;
+    margin-right: 0.4rem;
+
+    @media ${(p) => p.theme.breakpoints.sm} {
+      height: 3.5rem;
+      margin-right: 0.8rem;
+    }
   }
 `;
 
 const Logo = styled.span`
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 500;
+
+  @media ${(p) => p.theme.breakpoints.sm} {
+    font-size: 1.5em;
+  }
 `;

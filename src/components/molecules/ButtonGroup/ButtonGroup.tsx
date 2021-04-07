@@ -15,6 +15,7 @@ const GroupContainer = styled.div<ChildrenCount>`
   justify-content: center;
   font-size: 2.4rem;
   column-gap: ${({ gap }) => (gap ? `${gap}` : '1.2rem')};
+  width: 16.5rem;
 
   & a {
     display: inline-flex;
@@ -29,11 +30,12 @@ const GroupContainer = styled.div<ChildrenCount>`
     padding: 0 1rem;
   }
 
-  ${({ isMobile }) =>
+  ${({ count, isMobile }) =>
     isMobile &&
     `
-    grid-template-columns: repeat(2, 6.5rem);
+    grid-template-columns: repeat(${count}, 6.5rem);
     height: 5rem;
+    width: auto;
     
     & > button {
       height: 100%;

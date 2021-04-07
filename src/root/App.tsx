@@ -1,8 +1,8 @@
 import GlobalFonts from 'assets/fonts/fonts';
-import { Header } from 'components/organisms';
-import { About, Home, NotFound, Stuff } from 'components/pages';
-import { useToggle, useWindowSize } from 'hooks';
-import React from 'react';
+import { Footer, Header } from 'components/organisms';
+import { About, Home, NotFound, Shop } from 'components/pages';
+import { useOnScreen, useToggle, useWindowSize } from 'hooks';
+import React, { useEffect, useRef } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import GlobalStyles from 'root/GlobalStyles';
 import styled, { ThemeProvider } from 'styled-components/macro';
@@ -10,23 +10,41 @@ import { BREAKPOINT_SIZES, THEME } from '../constants';
 
 const App = () => {
   const [isToggled, setIsToggled] = useToggle();
+
+  const MOBILE_HEADER_HEIGHT = '215px';
+  const headerRef: any = useRef<HTMLDivElement>();
+  const isHeaderVisible = useOnScreen<HTMLDivElement>(headerRef, MOBILE_HEADER_HEIGHT);
+
   const { width } = useWindowSize();
   const isMobile = width < BREAKPOINT_SIZES.med;
+
+  // Removes navigation when header is no longer visible (e.g. changing sticky header to static).
+  useEffect(() => {
+    if (isToggled && !isHeaderVisible) {
+      setIsToggled();
+    }
+  }, [isHeaderVisible, isToggled, setIsToggled]);
 
   return (
     <HashRouter>
       <ThemeProvider theme={THEME}>
         <GlobalStyles />
         <GlobalFonts />
-        <Header isMobile={isMobile} isToggled={isToggled} onClick={setIsToggled} />
+        <Header
+          headerRef={headerRef}
+          isMobile={isMobile}
+          isToggled={isToggled}
+          updateHamburgerIcon={setIsToggled}
+        />
         <main>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/stuff" component={Stuff} />
+            <Route exact path="/shop" component={Shop} />
             <Route exact path="*" component={NotFound} />
           </Switch>
         </main>
+        <Footer />
         {isMobile && <Overlay isMobileMenuPresent={isToggled} />}
       </ThemeProvider>
     </HashRouter>
@@ -34,8 +52,8 @@ const App = () => {
 };
 
 const Overlay = styled.div`
-  ${(props: { isMobileMenuPresent: boolean }) =>
-    props.isMobileMenuPresent ? 'display: block;' : 'display: none;'}
+  display: ${(props: { isMobileMenuPresent: boolean }) =>
+    props.isMobileMenuPresent ? 'block' : 'none'};
   position: fixed;
   bottom: 0;
   left: 0;

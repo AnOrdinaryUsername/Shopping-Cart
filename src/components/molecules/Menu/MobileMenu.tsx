@@ -9,11 +9,21 @@ interface ToggleState {
 }
 
 interface MobileMenuProps extends ToggleState {
+  isSticky: boolean;
   onClick: () => void;
+  onHeaderToggle: () => void;
+  onEnterNewPage: () => void;
   theme: boolean;
 }
 
-const MobileMenu = ({ isToggled, onClick, theme }: MobileMenuProps) => {
+const MobileMenu = ({
+  isToggled,
+  isSticky,
+  onClick,
+  onEnterNewPage,
+  onHeaderToggle,
+  theme,
+}: MobileMenuProps) => {
   return (
     <Wrapper isToggled={isToggled}>
       {isToggled && (
@@ -23,13 +33,21 @@ const MobileMenu = ({ isToggled, onClick, theme }: MobileMenuProps) => {
               {menuRoutes.map((item, index) => {
                 return (
                   <Item key={index}>
-                    <Link to={item.route}>{item.text}</Link>
+                    <Link to={item.route} onClick={onEnterNewPage}>
+                      {item.text}
+                    </Link>
                   </Item>
                 );
               })}
             </List>
           </Nav>
-          <HeaderButtons isMobile={true} onClick={onClick} theme={theme} />
+          <HeaderButtons
+            isMobile={true}
+            onClick={onClick}
+            isSticky={isSticky}
+            onHeaderToggle={onHeaderToggle}
+            theme={theme}
+          />
         </>
       )}
     </Wrapper>
@@ -44,14 +62,14 @@ const Nav = styled.nav`
 `;
 
 const Wrapper = styled.div<ToggleState>`
-  ${({ isToggled }) => (isToggled ? 'display: block;' : 'display: none;')}
+  display: ${({ isToggled }) => (isToggled ? 'block' : 'none')};
   position: absolute;
   left: 0;
   top: 6rem;
   z-index: 999;
   padding: 3.2rem;
   width: 100%;
-  background: var(--bg-color);
+  background: var(--header-bg);
 `;
 
 const List = styled.ul`

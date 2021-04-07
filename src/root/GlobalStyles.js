@@ -87,6 +87,7 @@ const GlobalStyles = createGlobalStyle`
     :root {
         --bg-color: hsl(204, 15%, 94%);
         --font-color: hsl(0, 0%, 25%);
+        --header-bg: hsl(0, 0%, 97%);
         --invert-bg: hsl(0, 0%, 25%);
         --invert-font: hsl(204, 15%, 94%);
         --button-bg-color: hsl(0, 0%, 26%);
@@ -98,6 +99,7 @@ const GlobalStyles = createGlobalStyle`
     [data-theme='dark'] {
         --bg-color: hsl(232, 20%, 17%);
         --font-color: hsl(0, 0%, 96%);
+        --header-bg: hsl(0, 0%, 11%);
         --invert-bg: hsl(0, 0%, 96%);
         --invert-font: hsl(232, 20%, 17%);
         --heading-color: hsl(0, 0%, 100%);
@@ -165,12 +167,17 @@ const GlobalStyles = createGlobalStyle`
 
     header {
         display: flex;
+        flex-direction: row-reverse;
         align-items: baseline;
         justify-content: space-between;
         width: 100%;
         max-width: 80rem;
         margin: auto;
         padding: 2rem 3.2rem;
+
+        @media ${(p) => p.theme.breakpoints.med} {
+            flex-direction: row;
+        }
     }
 
     main {
