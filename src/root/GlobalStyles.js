@@ -167,12 +167,17 @@ const GlobalStyles = createGlobalStyle`
 
     header {
         display: flex;
+        flex-direction: row-reverse;
         align-items: baseline;
         justify-content: space-between;
         width: 100%;
         max-width: 80rem;
         margin: auto;
         padding: 2rem 3.2rem;
+
+        @media ${(p) => p.theme.breakpoints.med} {
+            flex-direction: row;
+        }
     }
 
     main {
