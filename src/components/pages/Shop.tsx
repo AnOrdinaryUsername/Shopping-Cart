@@ -17,18 +17,20 @@ const Shop = () => {
         </Box>
         <Toolbar></Toolbar>
       </Header>
-      {isDesktop && (
-        <Sidebar>
-          <div>
-            <p>hello</p>
-          </div>
-        </Sidebar>
-      )}
-      <ProductsContainer>
-        {products.map((props, index) => {
-          return <ProductItem {...props} key={index} />;
-        })}
-      </ProductsContainer>
+      <Content>
+        {isDesktop && (
+          <Sidebar>
+            <div>
+              <p>hello</p>
+            </div>
+          </Sidebar>
+        )}
+        <ProductsContainer>
+          {products.map((props, index) => {
+            return <ProductItem {...props} key={index} />;
+          })}
+        </ProductsContainer>
+      </Content>
     </Wrapper>
   );
 };
@@ -41,11 +43,11 @@ const Wrapper = styled.div`
 
   @media ${(p) => p.theme.breakpoints.lg} {
     display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
-      'header header'
-      'sidebar products';
+      '. header .'
+      '. content .';
   }
 `;
 
@@ -78,31 +80,41 @@ const Toolbar = styled.div`
   justify-content: space-between;
 `;
 
+const Content = styled.div`
+  grid-area: content;
+  display: initial;
+  width: 100%;
+  padding: 0 1.6rem;
+
+  @media ${(p) => p.theme.breakpoints.lg} {
+    display: flex;
+    padding: 9.6rem 0;
+  }
+`;
+
 const Sidebar = styled.section`
-  align-self: self-start;
   position: sticky;
-  grid-area: sidebar;
+  top: 10%;
   display: flex;
   flex-direction: column;
-  max-width: 30rem;
-  width: 100%;
-  margin-left: auto;
-  padding: 3.6rem;
+  height: fit-content;
+  margin-right: 3.6rem;
+  padding: 0 3.6rem;
 `;
 
 const ProductsContainer = styled.section`
-  grid-area: products;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 4.8rem 4.8rem;
   justify-items: center;
   width: 100%;
-  max-width: 80rem;
-  margin: auto;
-  padding: 9.6rem 1.6rem;
 
   @media ${(p) => p.theme.breakpoints.sm} {
     justify-items: self-start;
+  }
+
+  @media ${(p) => p.theme.breakpoints.lg} {
+    max-width: 80rem;
   }
 `;
 

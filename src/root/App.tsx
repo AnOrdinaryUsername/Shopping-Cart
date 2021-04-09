@@ -1,4 +1,4 @@
-import GlobalFonts from 'assets/fonts/fonts';
+import GlobalFonts from 'assets/fonts';
 import { Footer, Header } from 'components/organisms';
 import { About, Home, NotFound, Shop } from 'components/pages';
 import { useOnScreen, useToggle, useWindowSize } from 'hooks';
@@ -18,7 +18,8 @@ const App = () => {
   const { width } = useWindowSize();
   const isMobile = width < BREAKPOINT_SIZES.med;
 
-  // Removes navigation when header is no longer visible (e.g. changing sticky header to static).
+  // Removes mobile navigation when header is no longer visible
+  // (e.g. changing sticky header to static).
   useEffect(() => {
     if (isToggled && !isHeaderVisible) {
       setIsToggled();

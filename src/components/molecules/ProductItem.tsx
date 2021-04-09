@@ -1,6 +1,6 @@
-import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { faCircleNotch, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Image } from 'components/atoms';
+import { Button, Image } from 'components/atoms';
 import React from 'react';
 import LazyLoad from 'react-lazyload';
 import styled from 'styled-components/macro';
@@ -12,17 +12,22 @@ export interface ProductItemProps {
   src: string;
 }
 
+const Loading = () => <FontAwesomeIcon height="25rem" icon={faCircleNotch} spin />;
+
 const ProductItem = ({ alt, price, productName, src }: ProductItemProps) => {
   return (
     <Wrapper>
-      <LazyLoad height={'100%'} offset={100} once>
-        <ProductImage alt={alt} src={src} />
+      <LazyLoad height={'100%'} offset={50} placeholder={<Loading />} once>
+        <Image alt={alt} src={src} />
       </LazyLoad>
       <Item>{productName}</Item>
       <PriceTag>
         <FontAwesomeIcon icon={faDollarSign} />
         {price}
       </PriceTag>
+      <AddItemButton variant="primary" size="medium">
+        Add to Cart
+      </AddItemButton>
     </Wrapper>
   );
 };
@@ -30,16 +35,19 @@ const ProductItem = ({ alt, price, productName, src }: ProductItemProps) => {
 export default ProductItem;
 
 const Wrapper = styled.article`
+  display: flex;
+  flex-direction: column;
   max-width: 24rem;
   min-width: 18rem;
   width: 100%;
-  background: hsl(253, 47%, 92%);
+  background: hsl(0, 0%, 100%);
+  border-radius: 2rem;
   box-shadow: 0px 2px 4px 0px hsl(0deg 0% 0% / 20%);
   text-align: center;
-`;
 
-const ProductImage = styled(Image)`
-  background-size: cover;
+  & > .lazyload-wrapper {
+    border-radius: inherit;
+  }
 `;
 
 const PriceTag = styled.span`
@@ -56,5 +64,11 @@ const Item = styled.h2`
   font-weight: 600;
   font-size: 1em;
   margin-bottom: 0.4rem;
-  margin-top: 1.2rem;
+`;
+
+const AddItemButton = styled(Button)`
+  border-radius: 0;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  margin-top: 1.6rem;
 `;
