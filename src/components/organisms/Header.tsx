@@ -25,7 +25,7 @@ const Header = ({ headerRef, isMobile, isToggled, updateHamburgerIcon }: HeaderP
             <FontAwesomeIcon icon={faShoppingCart} />
           </MobileShoppingIcon>
         )}
-        <CompanyLogo />
+        <CompanyLogo isMobileMenuOpen={isToggled} onEnterHomepage={updateHamburgerIcon} />
         {isMobile ? (
           <>
             <HamburgerMenu

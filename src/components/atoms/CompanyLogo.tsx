@@ -3,10 +3,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const CompanyLogo = () => {
+type CompanyLogoProps =
+  | {
+      isMobileMenuOpen?: boolean;
+      onEnterHomepage: () => void;
+    }
+  | {
+      isMobileMenuOpen?: false;
+      onEnterHomepage?: never;
+    };
+
+const CompanyLogo = ({ isMobileMenuOpen, onEnterHomepage }: CompanyLogoProps) => {
+  const resetHamburgerIcon = () => {
+    if (isMobileMenuOpen && onEnterHomepage) {
+      onEnterHomepage();
+    }
+  };
+
   return (
-    <LinkContainer to="/">
-      <LogoSVG title="Beautiful and elegant square" />
+    <LinkContainer to="/" onClick={resetHamburgerIcon}>
+      <LogoSVG title="Beautiful and elegant triangle" />
       <Logo>The Elements</Logo>
     </LinkContainer>
   );
