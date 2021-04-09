@@ -14,4 +14,5 @@ export default Image;
 const ResponsiveImage = styled.img`
   max-width: 100%;
   height: auto;
+  border-radius: inherit;
 `;
