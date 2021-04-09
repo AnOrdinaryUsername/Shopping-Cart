@@ -10,7 +10,8 @@ const NotFound = () => {
     <Container>
       <HamsterFace>(´･ω･`)</HamsterFace>
       <Text>
-        Sowwy, da page <code>{path}</code> does nyot exist.
+        Sowwy, da page <code>{path}</code>
+        <OrphanPreventer> does nyot exist.</OrphanPreventer>
       </Text>
     </Container>
   );
@@ -19,8 +20,9 @@ const NotFound = () => {
 const Container = styled.div`
   display: grid;
   place-items: center;
-  margin-top: 10rem;
+  margin: 10rem auto;
   width: 100%;
+  text-align: center;
 `;
 
 const HamsterFace = styled.h1`
@@ -30,6 +32,15 @@ const HamsterFace = styled.h1`
 
 const Text = styled.p`
   font-size: 1.25em;
+  padding: 1.6rem;
+`;
+
+const OrphanPreventer = styled.span`
+  display: block;
+
+  @media ${(p) => p.theme.breakpoints.sm} {
+    display: inline;
+  }
 `;
 
 export default NotFound;
