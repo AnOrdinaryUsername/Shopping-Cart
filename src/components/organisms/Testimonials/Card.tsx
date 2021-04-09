@@ -49,6 +49,7 @@ const HiddenHeading = styled.h3`
 `;
 
 const Image = styled.img`
+  align-self: flex-start;
   width: 250px;
   height: auto;
   margin-bottom: calc(3.6rem + var(--shadow-size));
