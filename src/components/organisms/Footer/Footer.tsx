@@ -1,4 +1,4 @@
-import { faDiscord, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Anchor, CompanyLogo } from 'components/atoms';
 import React from 'react';
@@ -16,13 +16,22 @@ const Footer = () => {
           <CompanyLogo />
           <Copyright>Copyright © {currentYear} The Elements</Copyright>
           <SVGContainer>
-            <Anchor link="#">
-              <FontAwesomeIcon icon={faTwitter} />
+            <Anchor
+              aria-label="Never Gonna Give You Up by Rick Astley"
+              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            >
+              <FontAwesomeIcon icon={faYoutube} />
             </Anchor>
-            <Anchor link="#">
-              <FontAwesomeIcon icon={faFacebook} />
+            <Anchor
+              aria-label="View the source code repository"
+              link="https://github.com/AnOrdinaryUsername/Shopping-Cart"
+            >
+              <FontAwesomeIcon icon={faGithub} />
             </Anchor>
-            <Anchor link="https://discordapp.com/users/324705092726947842">
+            <Anchor
+              aria-label="The creator of The Elements Discord profile (RandomPotato#1377)"
+              link="https://discordapp.com/users/324705092726947842"
+            >
               <FontAwesomeIcon icon={faDiscord} />
             </Anchor>
           </SVGContainer>
