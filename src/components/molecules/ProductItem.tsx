@@ -1,8 +1,9 @@
 import { faCircleNotch, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Image } from 'components/atoms';
-import React from 'react';
+import React, { useContext } from 'react';
 import LazyLoad from 'react-lazyload';
+import CartContext, { ProductSchema } from 'root/CartContext';
 import styled from 'styled-components/macro';
 
 export interface ProductItemProps {
@@ -15,6 +16,35 @@ export interface ProductItemProps {
 const Loading = () => <FontAwesomeIcon height="25rem" icon={faCircleNotch} spin />;
 
 const ProductItem = ({ alt, price, productName, src }: ProductItemProps) => {
+  const { cartStorage, setCartStorage } = useContext(CartContext);
+
+  const addItemToCart = () => {
+    const alreadyContainsItem = (item: ProductSchema) => item.productName === productName;
+
+    if (cartStorage.some(alreadyContainsItem)) {
+      const updatedCart = cartStorage.map((item: ProductSchema) =>
+        item.productName === productName
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+            }
+          : item
+      );
+
+      setCartStorage(updatedCart);
+    } else {
+      const newItem = {
+        alt,
+        price,
+        productName,
+        src,
+        quantity: 1,
+      };
+
+      setCartStorage((oldCart) => [...oldCart, newItem]);
+    }
+  };
+
   return (
     <Wrapper>
       <LazyLoad height={'100%'} offset={50} placeholder={<Loading />} once>
@@ -25,7 +55,7 @@ const ProductItem = ({ alt, price, productName, src }: ProductItemProps) => {
         <FontAwesomeIcon icon={faDollarSign} />
         {price}
       </PriceTag>
-      <AddItemButton variant="primary" size="medium">
+      <AddItemButton variant="primary" size="medium" onClick={addItemToCart}>
         Add to Cart
       </AddItemButton>
     </Wrapper>
