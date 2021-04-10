@@ -84,7 +84,7 @@ const Content = styled.div`
   grid-area: content;
   display: initial;
   width: 100%;
-  padding: 0 1.6rem;
+  padding: 4.8rem 1.6rem;
 
   @media ${(p) => p.theme.breakpoints.lg} {
     display: flex;
