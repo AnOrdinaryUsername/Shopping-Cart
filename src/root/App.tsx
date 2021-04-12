@@ -1,6 +1,6 @@
 import GlobalFonts from 'assets/fonts';
 import { Footer, Header } from 'components/organisms';
-import { About, Home, NotFound, Shop } from 'components/pages';
+import { About, Cart, Home, NotFound, Shop } from 'components/pages';
 import { useOnScreen, useToggle, useWindowSize } from 'hooks';
 import React, { useEffect, useRef, useState } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
@@ -45,6 +45,7 @@ const App = () => {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/shop" component={Shop} />
+              <Route exact path="/cart" component={Cart} />
               <Route exact path="*" component={NotFound} />
             </Switch>
           </main>
