@@ -27,12 +27,12 @@ const Container = styled.div`
 
 const HamsterFace = styled.h1`
   font-size: 3em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
 `;
 
 const Text = styled.p`
   font-size: 1.25em;
-  padding: 1.6rem;
+  padding: 0 1.6rem;
 `;
 
 const OrphanPreventer = styled.span`
