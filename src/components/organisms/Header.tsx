@@ -1,10 +1,11 @@
-import { faBars, faShoppingCart, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, CompanyLogo } from 'components/atoms';
+import { Button, CartIcon, CompanyLogo } from 'components/atoms';
 import { DesktopMenu, HeaderButtons, MobileMenu } from 'components/molecules';
 import { useColorTheme, useToggle } from 'hooks';
 import React from 'react';
 import styled from 'styled-components/macro';
+import { BREAKPOINT_SIZES } from '../../constants';
 
 interface HeaderProps {
   headerRef: any;
@@ -15,16 +16,13 @@ interface HeaderProps {
 
 const Header = ({ headerRef, isMobile, isToggled, updateHamburgerIcon }: HeaderProps) => {
   const [theme, setTheme] = useColorTheme();
-  const [isSticky, setIsSticky] = useToggle();
+  const hasHamburgerMenu = window.innerWidth < BREAKPOINT_SIZES.med;
+  const [isSticky, setIsSticky] = useToggle(hasHamburgerMenu);
 
   return (
     <Wrapper ref={headerRef} isSticky={isSticky}>
       <header>
-        {isMobile && (
-          <MobileShoppingIcon>
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </MobileShoppingIcon>
-        )}
+        {isMobile && <CartIcon />}
         <CompanyLogo isMobileMenuOpen={isToggled} onEnterHomepage={updateHamburgerIcon} />
         {isMobile ? (
           <>
@@ -61,7 +59,7 @@ const Header = ({ headerRef, isMobile, isToggled, updateHamburgerIcon }: HeaderP
   );
 };
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   position: ${(props: { isSticky: boolean }) => (props.isSticky ? 'sticky' : 'static')};
   top: 0;
   z-index: 90;
@@ -74,11 +72,6 @@ const HamburgerMenu = styled(Button)`
   align-self: center;
   font-size: 2em;
   min-width: 3rem;
-`;
-
-const MobileShoppingIcon = styled(Button)`
-  align-self: center;
-  font-size: 1.5em;
 `;
 
 export default Header;
