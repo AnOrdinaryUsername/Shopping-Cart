@@ -22,7 +22,7 @@ const ProductItem = ({ alt, price, productName, src }: ProductItemProps) => {
     const alreadyContainsItem = (item: ProductSchema) => item.productName === productName;
 
     if (cartStorage.some(alreadyContainsItem)) {
-      const updatedCart = cartStorage.map((item: ProductSchema) =>
+      const updatedCart = cartStorage.map((item) =>
         item.productName === productName
           ? {
               ...item,
