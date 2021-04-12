@@ -1,12 +1,6 @@
-import {
-  faLock,
-  faLockOpen,
-  faMoon,
-  faShoppingCart,
-  faSun,
-} from '@fortawesome/free-solid-svg-icons';
+import { faLock, faLockOpen, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from 'components/atoms';
+import { Button, CartIcon } from 'components/atoms';
 import { ButtonGroup } from 'components/molecules';
 import React from 'react';
 
@@ -36,11 +30,7 @@ const HeaderButtons = ({
       >
         <FontAwesomeIcon icon={isSticky ? faLock : faLockOpen} />
       </Button>
-      {!isMobile && (
-        <Button>
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </Button>
-      )}
+      {!isMobile && <CartIcon />}
     </ButtonGroup>
   );
 };
