@@ -25,15 +25,15 @@ const ProductRow = ({ alt, removeItem, price, productName, src, quantityId }: Pr
 
   const updateQuantity = (event: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.currentTarget;
-    const NEW_ITEM = 1;
+    const currentValue = Number(value);
     const TWO_DECIMAL_PLACES = 2;
 
     const updatedCart = cartStorage.map((item) =>
       `${item.productName}${quantityId}` === id
         ? {
             ...item,
-            quantity: Number(value),
-            subtotal: ((item.quantity + NEW_ITEM) * price).toFixed(TWO_DECIMAL_PLACES),
+            quantity: currentValue,
+            subtotal: (currentValue * price).toFixed(TWO_DECIMAL_PLACES),
           }
         : item
     );
@@ -69,7 +69,7 @@ const ProductRow = ({ alt, removeItem, price, productName, src, quantityId }: Pr
             max="50"
             pattern="[0-9]"
             id={`${productName}${quantityId}`}
-            onInput={updateQuantity}
+            onChange={updateQuantity}
           />
         </Middle>
       )}
@@ -86,8 +86,8 @@ const ProductRow = ({ alt, removeItem, price, productName, src, quantityId }: Pr
               min="1"
               max="50"
               pattern="[0-9]"
-              name={`${productName}${quantityId}`}
-              onInput={updateQuantity}
+              id={`${productName}${quantityId}`}
+              onChange={updateQuantity}
             />
           </>
         )}
