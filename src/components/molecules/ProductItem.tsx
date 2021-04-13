@@ -22,11 +22,15 @@ const ProductItem = ({ alt, price, productName, src }: ProductItemProps) => {
     const alreadyContainsItem = (item: ProductSchema) => item.productName === productName;
 
     if (cartStorage.some(alreadyContainsItem)) {
+      const NEW_ITEM = 1;
+      const TWO_DECIMAL_PLACES = 2;
+
       const updatedCart = cartStorage.map((item) =>
         item.productName === productName
           ? {
               ...item,
-              quantity: item.quantity + 1,
+              quantity: item.quantity + NEW_ITEM,
+              subtotal: ((item.quantity + NEW_ITEM) * price).toFixed(TWO_DECIMAL_PLACES),
             }
           : item
       );
@@ -39,6 +43,7 @@ const ProductItem = ({ alt, price, productName, src }: ProductItemProps) => {
         productName,
         src,
         quantity: 1,
+        subtotal: price.toString(),
       };
 
       setCartStorage((oldCart) => [...oldCart, newItem]);

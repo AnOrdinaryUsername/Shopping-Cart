@@ -3,6 +3,7 @@ import { createContext, Dispatch, SetStateAction } from 'react';
 
 export interface ProductSchema extends ProductItemProps {
   quantity: number;
+  subtotal: string;
 }
 
 export interface CartStorage extends Array<ProductSchema> {}
