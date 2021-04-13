@@ -2,13 +2,13 @@ import { faLock, faLockOpen, faMoon, faSun } from '@fortawesome/free-solid-svg-i
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, CartIcon } from 'components/atoms';
 import { ButtonGroup } from 'components/molecules';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 interface HeaderButtonsProps {
   isMobile?: boolean;
   isSticky: boolean;
-  onClick: () => void;
-  onHeaderToggle: () => void;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  onHeaderToggle: MouseEventHandler<HTMLButtonElement>;
   theme: boolean;
 }
 
