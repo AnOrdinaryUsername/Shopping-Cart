@@ -1,5 +1,5 @@
 import React, { ImgHTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
   src: string;
