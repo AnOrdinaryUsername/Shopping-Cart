@@ -1,6 +1,9 @@
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProductRow } from 'components/molecules';
 import { useWindowSize } from 'hooks';
 import React, { MouseEvent, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import CartContext from 'root/CartContext';
 import styled from 'styled-components/macro';
 import { BREAKPOINT_SIZES } from '../../constants';
@@ -10,7 +13,12 @@ const Cart = () => {
   const { cartStorage, setCartStorage } = useContext(CartContext);
   const { width } = useWindowSize();
   const hasHamburgerMenu = width < BREAKPOINT_SIZES.med;
+  const emptyCart = cartStorage.length === 0;
   const id = 'Quantity';
+
+  const TWO_DECIMAL_PLACES = 2;
+  const total: number = cartStorage.reduce((sum, { subtotal }) => sum + parseFloat(subtotal), 0);
+  const roundedTotal = total.toFixed(TWO_DECIMAL_PLACES);
 
   const removeItem = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -20,9 +28,15 @@ const Cart = () => {
 
   return (
     <Wrapper>
-      <Title>My Cart</Title>
-      {cartStorage.length === 0 ? (
-        <EmptyCart>Your cart is currently empty.</EmptyCart>
+      <Title emptyCart>My Cart</Title>
+      {emptyCart ? (
+        <>
+          <EmptyCart>Your cart is currently empty.</EmptyCart>
+          <ContinueShopping to="/shop">
+            Continue Shopping
+            <FontAwesomeIcon icon={faArrowRight} />
+          </ContinueShopping>
+        </>
       ) : (
         <Form>
           <Table>
@@ -42,7 +56,7 @@ const Cart = () => {
           <OrderSummary>
             <Subtotal>
               <span>Subtotal</span>
-              <Amount>$ NaN</Amount>
+              <Amount>${roundedTotal}</Amount>
             </Subtotal>
             <Checkout type="submit" name="checkout" value="Checkout" />
           </OrderSummary>
@@ -53,16 +67,32 @@ const Cart = () => {
 };
 
 const EmptyCart = styled.p`
+  font-size: 1.25em;
   text-align: center;
+  padding-bottom: 2rem;
+`;
+
+const ContinueShopping = styled(Link)`
+  ${defaultButtonStyles}
+  ${mediumButton}
+  ${primaryButton}
+
+  & > svg {
+    font-size: 1em;
+    margin-left: 0.8rem;
+  }
 `;
 
 const Wrapper = styled.section`
-  display: grid;
-  place-items: center;
-  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 7.2rem 1.4rem;
 
   @media ${(p) => p.theme.breakpoints.sm} {
-    padding: 2.8rem;
+    padding: 7.2rem 2.8rem;
   }
 
   @media ${(p) => p.theme.breakpoints.med} {
@@ -72,14 +102,14 @@ const Wrapper = styled.section`
 
 const Form = styled.form`
   display: grid;
-  max-width: 60rem;
+  max-width: 80rem;
   width: 100%;
 `;
 
-const Title = styled.div`
-  font-size: 2.25em;
+const Title = styled.h1`
+  font-size: 2.75em;
   font-weight: 700;
-  padding-bottom: 2.8rem;
+  padding-bottom: ${(props: { emptyCart: boolean }) => (props.emptyCart ? '2rem' : '2.8rem')};
 `;
 
 const Table = styled.table`
@@ -93,7 +123,7 @@ const TableRow = styled.tr`
     text-align: left;
   }
 
-  & > th:nth-child(2) {
+  & > th:nth-child(2):not(:last-child) {
     text-align: center;
   }
 
@@ -120,7 +150,10 @@ const Subtotal = styled.div`
 `;
 
 const Amount = styled.span`
+  display: inline-block;
+  min-width: 18rem;
   padding-left: 5.6rem;
+  text-align: right;
 `;
 
 const Checkout = styled.input`
