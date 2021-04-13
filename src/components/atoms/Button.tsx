@@ -64,6 +64,7 @@ export const defaultButtonStyles = css`
   justify-content: center;
   border-radius: 0.8rem;
   font-weight: 700;
+  cursor: pointer;
 `;
 
 interface DefaultButtonProps {
