@@ -59,6 +59,9 @@ const selectSize = (size?: string) => {
 };
 
 export const defaultButtonStyles = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.8rem;
   font-weight: 700;
 `;
@@ -72,10 +75,6 @@ const StyledButton = styled.button<DefaultButtonProps>`
   ${({ variant }) => selectVariant(variant)}
   ${({ size }) => selectSize(size)}
   ${defaultButtonStyles}
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const Button = ({
