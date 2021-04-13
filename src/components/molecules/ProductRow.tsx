@@ -20,20 +20,20 @@ const ProductRow = ({ alt, removeItem, price, productName, src, quantityId }: Pr
   const hasHamburgerMenu = width < BREAKPOINT_SIZES.med;
   const product = cartStorage.filter((item) => item.productName === productName);
   const quantity = product[0].quantity;
+  const subtotal = product[0].subtotal;
   const [itemQuantity, setItemQuantity] = useState(quantity);
 
-  const total = quantity * price;
-  const TWO_DECIMAL_PLACES = 100;
-  const roundedPrice =
-    Math.round((total + Number.EPSILON) * TWO_DECIMAL_PLACES) / TWO_DECIMAL_PLACES;
-
   const updateQuantity = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.currentTarget;
+    const { id, value } = event.currentTarget;
+    const NEW_ITEM = 1;
+    const TWO_DECIMAL_PLACES = 2;
+
     const updatedCart = cartStorage.map((item) =>
-      `${item.productName}${quantityId}` === name
+      `${item.productName}${quantityId}` === id
         ? {
             ...item,
             quantity: Number(value),
+            subtotal: ((item.quantity + NEW_ITEM) * price).toFixed(TWO_DECIMAL_PLACES),
           }
         : item
     );
@@ -44,7 +44,7 @@ const ProductRow = ({ alt, removeItem, price, productName, src, quantityId }: Pr
 
   return (
     <Wrapper>
-      <Data>
+      <Left>
         <FlexRow>
           <LazyLoad height={'100%'} once>
             <Image alt={alt} src={src} />
@@ -54,38 +54,44 @@ const ProductRow = ({ alt, removeItem, price, productName, src, quantityId }: Pr
             <Price>${price}</Price>
             <RemoveButton variant="tertiary" size="small" name={productName} onClick={removeItem}>
               <FontAwesomeIcon icon={faTrash} />
-              Remove Item
+              Remove
             </RemoveButton>
           </ProductInfo>
         </FlexRow>
-      </Data>
+      </Left>
       {!hasHamburgerMenu && (
-        <td>
+        <Middle>
+          <HiddenLabel htmlFor={`${productName}${quantityId}`}>Quantity</HiddenLabel>
           <SelectAmount
             type="number"
             value={itemQuantity}
             min="1"
             max="50"
             pattern="[0-9]"
-            name={`${productName}${quantityId}`}
+            id={`${productName}${quantityId}`}
             onInput={updateQuantity}
           />
-        </td>
+        </Middle>
       )}
-      <td>
-        <FinalPrice>${roundedPrice}</FinalPrice>
+      <End>
+        <FinalPrice hasHamburgerMenu>${subtotal}</FinalPrice>
         {hasHamburgerMenu && (
-          <SelectAmount
-            type="number"
-            value={itemQuantity}
-            min="1"
-            max="50"
-            pattern="[0-9]"
-            name={`${productName}${quantityId}`}
-            onInput={updateQuantity}
-          />
+          <>
+            <VisibleLabel htmlFor={`${productName}${quantityId}`} aria-label="Quantity">
+              Qty
+            </VisibleLabel>
+            <SelectAmount
+              type="number"
+              value={itemQuantity}
+              min="1"
+              max="50"
+              pattern="[0-9]"
+              name={`${productName}${quantityId}`}
+              onInput={updateQuantity}
+            />
+          </>
         )}
-      </td>
+      </End>
     </Wrapper>
   );
 };
@@ -101,12 +107,12 @@ const Wrapper = styled.tr`
     text-align: right;
   }
 
-  & > td:nth-child(2) {
+  & > td:nth-child(2):not(:last-child) {
     text-align: center;
   }
 `;
 
-const Data = styled.td`
+const Left = styled.td`
   & img {
     max-width: 10rem;
     border-radius: 0.5rem;
@@ -127,10 +133,14 @@ const ProductInfo = styled.div`
   justify-content: center;
   max-width: 40rem;
   width: 100%;
-  padding: 0 3.2rem;
+  padding: 0 1.6rem;
 
   & > *:not(:last-child) {
     padding-bottom: 0.6rem;
+  }
+
+  @media ${(p) => p.theme.breakpoints.sm} {
+    padding: 0 3.2rem;
   }
 `;
 
@@ -141,8 +151,11 @@ const Name = styled.span`
 `;
 
 const Price = styled.span`
+  display: inline-block;
   font-size: 1em;
   font-weight: 700;
+  max-width: 11rem;
+  width: 100%;
 `;
 
 const RemoveButton = styled(Button)`
@@ -153,6 +166,31 @@ const RemoveButton = styled(Button)`
     align-items: center;
     margin-right: 0.8rem;
   }
+`;
+
+const Middle = styled.td`
+  text-align: center;
+`;
+
+const HiddenLabel = styled.label`
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+`;
+
+const End = styled.td`
+  text-align: right;
+`;
+
+const VisibleLabel = styled.label`
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.75em;
+  margin-right: 0.8rem;
 `;
 
 const SelectAmount = styled.input`
@@ -169,9 +207,11 @@ const SelectAmount = styled.input`
 `;
 
 const FinalPrice = styled.span`
+  display: block;
   font-size: 1.25em;
   font-weight: 300;
-  padding: 1.6rem 3.2rem;
+  padding: ${(props: { hasHamburgerMenu: boolean }) =>
+    props.hasHamburgerMenu ? '0 0 0.8rem 0' : '1.6rem 3.2rem'};
   padding-right: 0;
 `;
 
