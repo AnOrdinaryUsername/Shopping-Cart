@@ -1,7 +1,7 @@
 import { ReactComponent as LogoSVG } from 'assets/svgs/triangle.svg';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 type CompanyLogoProps =
   | {

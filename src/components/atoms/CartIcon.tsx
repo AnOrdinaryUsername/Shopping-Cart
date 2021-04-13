@@ -4,7 +4,7 @@ import { Wrapper as MobileHeaderWrapper } from 'components/organisms/Header';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from 'root/CartContext';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const CartIcon = () => {
   const { cartStorage } = useContext(CartContext);
