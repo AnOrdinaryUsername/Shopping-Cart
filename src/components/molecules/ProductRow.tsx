@@ -74,7 +74,7 @@ const ProductRow = ({ alt, removeItem, price, productName, src, quantityId }: Pr
         </Middle>
       )}
       <End>
-        <FinalPrice hasHamburgerMenu>${subtotal}</FinalPrice>
+        <FinalPrice hasHamburgerMenu={hasHamburgerMenu}>${subtotal}</FinalPrice>
         {hasHamburgerMenu && (
           <>
             <VisibleLabel htmlFor={`${productName}${quantityId}`} aria-label="Quantity">
@@ -183,6 +183,7 @@ const HiddenLabel = styled.label`
 `;
 
 const End = styled.td`
+  width: 16rem;
   text-align: right;
 `;
 

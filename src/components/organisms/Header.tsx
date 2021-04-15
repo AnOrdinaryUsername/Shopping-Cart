@@ -2,13 +2,13 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, CartIcon, CompanyLogo } from 'components/atoms';
 import { DesktopMenu, HeaderButtons, MobileMenu } from 'components/molecules';
-import { useColorTheme, useToggle } from 'hooks';
-import React from 'react';
+import { useColorTheme, useStickyState } from 'hooks';
+import React, { Ref } from 'react';
 import styled from 'styled-components/macro';
 import { BREAKPOINT_SIZES } from '../../constants';
 
 interface HeaderProps {
-  headerRef: any;
+  headerRef: Ref<HTMLDivElement>;
   isMobile: boolean;
   isToggled: boolean;
   updateHamburgerIcon: () => void;
@@ -17,7 +17,9 @@ interface HeaderProps {
 const Header = ({ headerRef, isMobile, isToggled, updateHamburgerIcon }: HeaderProps) => {
   const [theme, setTheme] = useColorTheme();
   const hasHamburgerMenu = window.innerWidth < BREAKPOINT_SIZES.med;
-  const [isSticky, setIsSticky] = useToggle(hasHamburgerMenu);
+  const [isSticky, setIsSticky] = useStickyState(hasHamburgerMenu, 'isSticky');
+
+  const updateStickyHeader = () => setIsSticky(!isSticky);
 
   return (
     <Wrapper ref={headerRef} isSticky={isSticky}>
@@ -37,7 +39,7 @@ const Header = ({ headerRef, isMobile, isToggled, updateHamburgerIcon }: HeaderP
             <MobileMenu
               isToggled={isToggled}
               onClick={setTheme}
-              onHeaderToggle={setIsSticky}
+              onHeaderToggle={updateStickyHeader}
               onEnterNewPage={updateHamburgerIcon}
               isSticky={isSticky}
               theme={theme}
@@ -48,7 +50,7 @@ const Header = ({ headerRef, isMobile, isToggled, updateHamburgerIcon }: HeaderP
             <DesktopMenu />
             <HeaderButtons
               onClick={setTheme}
-              onHeaderToggle={setIsSticky}
+              onHeaderToggle={updateStickyHeader}
               isSticky={isSticky}
               theme={theme}
             />

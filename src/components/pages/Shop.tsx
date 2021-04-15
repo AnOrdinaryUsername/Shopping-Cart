@@ -1,14 +1,9 @@
 import products from 'assets/images/products';
 import { ProductItem } from 'components/molecules';
-import { useWindowSize } from 'hooks';
 import React from 'react';
 import styled from 'styled-components/macro';
-import { BREAKPOINT_SIZES } from '../../constants';
 
 const Shop = () => {
-  const { width } = useWindowSize();
-  const isDesktop = width >= BREAKPOINT_SIZES.lg;
-
   return (
     <Wrapper>
       <Header>
@@ -18,13 +13,6 @@ const Shop = () => {
         <Toolbar></Toolbar>
       </Header>
       <Content>
-        {isDesktop && (
-          <Sidebar>
-            <div>
-              <p>hello</p>
-            </div>
-          </Sidebar>
-        )}
         <ProductsContainer>
           {products.map((props, index) => {
             return <ProductItem {...props} key={index} />;
@@ -90,16 +78,6 @@ const Content = styled.div`
     display: flex;
     padding: 9.6rem 0;
   }
-`;
-
-const Sidebar = styled.section`
-  position: sticky;
-  top: 10%;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  margin-right: 3.6rem;
-  padding: 0 3.6rem;
 `;
 
 const ProductsContainer = styled.section`
