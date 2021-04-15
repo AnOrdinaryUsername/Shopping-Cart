@@ -89,10 +89,6 @@ const ProductsContainer = styled.section`
   justify-items: center;
   width: 100%;
 
-  @media ${(p) => p.theme.breakpoints.sm} {
-    justify-items: self-start;
-  }
-
   @media ${(p) => p.theme.breakpoints.lg} {
     max-width: 80rem;
   }
