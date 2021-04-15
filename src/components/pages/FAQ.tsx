@@ -1,10 +1,11 @@
 import { Anchor } from 'components/atoms';
 import { Accordion } from 'components/molecules';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const FAQ = () => {
+  document.title = 'FAQ - The Elements';
+
   return (
     <Wrapper>
       <Title>Frequently Answered Questions 🤔</Title>
@@ -40,9 +41,9 @@ const FAQ = () => {
         <Accordion question="Is this a real website? Can I actually buy svgs here?">
           Unfortunately, no this isn't a real website. If you actually want to try the svgs for
           free, you can download them{' '}
-          <Download to="/free-svgs.zip" target="_blank" download>
+          <Anchor hasUnderline={true} link="/free-svgs.zip" target="_blank" download>
             here
-          </Download>
+          </Anchor>
           . No attribution necessary.
         </Accordion>
       </Questions>
@@ -78,12 +79,6 @@ const Questions = styled.div`
   & > *:not(:last-child) {
     margin-bottom: 2rem;
   }
-`;
-
-const Download = styled(Link)`
-  text-decoration: underline solid black 0.2rem;
-  text-underline-offset: 0.4rem;
-  cursor: pointer;
 `;
 
 export default FAQ;

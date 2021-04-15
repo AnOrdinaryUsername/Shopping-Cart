@@ -2,7 +2,6 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { defaultButtonStyles, mediumButton, primaryButton } from 'components/atoms/Button';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const MouthSvg = () => {
@@ -33,7 +32,7 @@ const MouthSvg = () => {
         <path d="M144.316 124L170.316 162L204.316 124" stroke="black" strokeWidth="2" />
         <ellipse cx="173.816" cy="123.5" rx="29" ry="7.5" fill="var(--bg-color)" />
       </svg>
-      <Download to="/free-svgs.zip" target="_blank" download>
+      <Download href="/free-svgs.zip" target="_blank" download>
         <FontAwesomeIcon icon={faDownload} />
         Try for free
       </Download>
@@ -56,7 +55,7 @@ const Mouth = styled.div`
   }
 `;
 
-const Download = styled(Link)`
+const Download = styled.a`
   display: inline-block;
   ${defaultButtonStyles}
   ${mediumButton}
