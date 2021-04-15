@@ -40,7 +40,7 @@ const FAQ = () => {
         <Accordion question="Is this a real website? Can I actually buy svgs here?">
           Unfortunately, no this isn't a real website. If you actually want to try the svgs for
           free, you can download them{' '}
-          <Download to="free-svgs.zip" target="_blank" download>
+          <Download to="/free-svgs.zip" target="_blank" download>
             here
           </Download>
           . No attribution necessary.
