@@ -32,7 +32,7 @@ const MouthSvg = () => {
         <path d="M144.316 124L170.316 162L204.316 124" stroke="black" strokeWidth="2" />
         <ellipse cx="173.816" cy="123.5" rx="29" ry="7.5" fill="var(--bg-color)" />
       </svg>
-      <Download href="/free-svgs.zip" target="_blank" download>
+      <Download href={process.env.PUBLIC_URL + '/free-svgs.zip'} target="_blank" download>
         <FontAwesomeIcon icon={faDownload} />
         Try for free
       </Download>
