@@ -4,6 +4,8 @@ import React from 'react';
 import styled from 'styled-components/macro';
 
 const Shop = () => {
+  document.title = 'Products - The Elements';
+
   return (
     <Wrapper>
       <Header>

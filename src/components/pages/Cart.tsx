@@ -10,6 +10,8 @@ import { BREAKPOINT_SIZES } from '../../constants';
 import { defaultButtonStyles, mediumButton, primaryButton } from '../atoms/Button';
 
 const Cart = () => {
+  document.title = 'Your Cart - The Elements';
+
   const { cartStorage, setCartStorage } = useContext(CartContext);
   const { width } = useWindowSize();
   const hasHamburgerMenu = width < BREAKPOINT_SIZES.med;

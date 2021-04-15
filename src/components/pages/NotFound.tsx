@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const NotFound = () => {
-  document.title = '🤷 Page not found | Shopping Cart';
+  document.title = '🤷 Page not found - The Elements';
   const path = useLocation().pathname;
 
   return (

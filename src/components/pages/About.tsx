@@ -7,6 +7,8 @@ import React from 'react';
 import styled, { css } from 'styled-components/macro';
 
 const About = () => {
+  document.title = 'About Us - The Elements';
+
   return (
     <Wrapper>
       <Mission>
