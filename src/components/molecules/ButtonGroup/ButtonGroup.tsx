@@ -30,10 +30,10 @@ const GroupContainer = styled.div<ChildrenCount>`
     padding: 0 1rem;
   }
 
-  ${({ count, isMobile }) =>
+  ${({ isMobile }) =>
     isMobile &&
     `
-    grid-template-columns: repeat(${count}, 6.5rem);
+    grid-template-columns: repeat(2, 6.5rem);
     height: 5rem;
     width: auto;
     
