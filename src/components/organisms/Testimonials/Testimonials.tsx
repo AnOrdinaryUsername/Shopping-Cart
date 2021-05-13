@@ -35,7 +35,6 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 3.6rem 1.6rem;
-  overflow: hidden;
 
   @media ${(p) => p.theme.breakpoints.sm} {
     padding: 4.8rem;
@@ -85,7 +84,7 @@ const SquareSvg = styled(Square)`
     width: 400px;
     z-index: -1;
     height: auto;
-    transform: rotate(64deg);
+    transform: scale(0.8) rotate(64deg);
   }
 
   & rect {
