@@ -39,7 +39,9 @@ const Section = styled.section`
   align-items: center;
   justify-content: space-evenly;
   padding: 3.6rem;
-  overflow: hidden;
+  margin: auto;
+  max-width: 144rem;
+  width: 100%;
 
   @media ${(p) => p.theme.breakpoints.sm} {
     padding: 4.8rem;

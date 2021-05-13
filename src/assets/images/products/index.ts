@@ -5,7 +5,7 @@ import lilypad from './lilypad.jpg';
 import lines from './lines.jpg';
 import mandarin from './mandarin.jpg';
 import rings from './rings.jpg';
-import shootingStar from './shooting-star.jpg';
+import star from './shooting-star.jpg';
 import square from './square.jpg';
 import tempered from './tempered.jpg';
 import tetris from './tetris.jpg';
@@ -30,8 +30,8 @@ const products: Data = [
   {
     alt: 'A yellow svg shaped like a star',
     price: 1.99,
-    productName: 'Shooting Star',
-    src: shootingStar,
+    productName: 'Star',
+    src: star,
   },
   {
     alt: 'A purple circle svg',

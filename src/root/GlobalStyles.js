@@ -182,6 +182,7 @@ const GlobalStyles = createGlobalStyle`
 
     main {
         flex: 1;
+        overflow: hidden;
     }
 
     small {

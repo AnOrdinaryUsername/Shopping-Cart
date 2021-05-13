@@ -29,9 +29,8 @@ const Link = styled.a<LinkProps>`
   ${({ hasUnderline }) =>
     hasUnderline &&
     `
-    padding: 0 0.4rem;
     text-decoration: underline solid black 0.2rem;
-    text-underline-offset: 0.4rem;
+    text-underline-offset: 0.2rem;
   `}
 
   ${({ hasHover }) =>
