@@ -35,8 +35,8 @@ const FAQ = () => {
             stacking contexts
           </Anchor>
           . Basically, once you form a stacking context, such as when using{' '}
-          <code>position: relative</code> in a container, you can absolutely position svgs to go
-          wherever you want.
+          <code>position: relative</code> in a container and using a z-index other than{' '}
+          <code>auto</code>, you can absolutely position svgs to go wherever you want.
         </Accordion>
         <Accordion question="Is this a real website? Can I actually buy svgs here?">
           Unfortunately, no this isn't a real website. If you actually want to try the svgs for
