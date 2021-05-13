@@ -50,8 +50,13 @@ const Cart = () => {
               </TableRow>
             </thead>
             <tbody>
-              {cartStorage.map((props, index) => (
-                <ProductRow removeItem={removeItem} quantityId={id} key={index} {...props} />
+              {cartStorage.map((props) => (
+                <ProductRow
+                  removeItem={removeItem}
+                  quantityId={id}
+                  key={props.productName}
+                  {...props}
+                />
               ))}
             </tbody>
           </Table>
