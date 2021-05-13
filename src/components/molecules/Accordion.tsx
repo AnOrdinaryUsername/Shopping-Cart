@@ -42,8 +42,9 @@ const Summary = styled.summary`
   padding: 0.8rem;
 `;
 
-const Text = styled.span`
+const Text = styled.p`
   font-size: 1.4rem;
+  line-height: 1.8;
 
   @media ${(p) => p.theme.breakpoints.sm} {
     font-size: 1.6rem;
